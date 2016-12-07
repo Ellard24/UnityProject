@@ -36,6 +36,8 @@
 
 ## II. Daily Workflow
 
+The general idea is that we will be working on different branches and merging them into master when they are good to go. If 
+help is needed to debug or figure something out though, checking out each other's branches is fine as well. 
 
 ### Here's a typical workflow for git for our team:
 
