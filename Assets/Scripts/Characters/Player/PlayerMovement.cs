@@ -18,14 +18,14 @@ namespace Platformer {
     // Use this for initialization
     void Start() {
 
-      jumpHeight = 150f;
+      jumpHeight = 500f;
       PlayerManager = GetComponent<Player_Manager>();
       rBody = GetComponent<Rigidbody2D>();
       anim = GetComponent<Animator>();
 
       //movement speed is a float that we multiply by Time.deltaTime;
       playerSpeed = PlayerManager.defaultMoveSpeed * Time.deltaTime;
-      PlayerManager.currentMoveSpeed = PlayerManager.defaultMoveSpeed + 1f;
+      PlayerManager.currentMoveSpeed = PlayerManager.defaultMoveSpeed;
     }
 
     // Update is called once per frame
@@ -62,7 +62,7 @@ namespace Platformer {
     }
 
     private void jump() {
-      rBody.AddForce(Vector2.up * jumpHeight);
+      rBody.AddForce(Vector2.up * jumpHeight, ForceMode2D.Force);
     }
 
     protected void OnCollisionEnter2D(Collision2D collision) {
