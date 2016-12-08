@@ -21,7 +21,7 @@ namespace Platformer {
     public int defaultDamage = 1;
     public int currentDamage;
 
-    public float defaultMoveSpeed = .1f;
+    public float defaultMoveSpeed = 0.05f;
     public float currentMoveSpeed;
 
     // Use this for initialization

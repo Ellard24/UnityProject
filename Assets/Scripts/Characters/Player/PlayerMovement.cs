@@ -12,19 +12,22 @@ namespace Platformer {
     public float playerSpeed;
     public Vector2 movementVector;
 
+    public float maxSpeed = 2.5f;
+    public float moveForce = 365f;
+
     public float jumpHeight;
     public bool isGrounded = false;
 
     // Use this for initialization
     void Start() {
 
-      jumpHeight = 500f;
+      //jumpHeight;
       PlayerManager = GetComponent<Player_Manager>();
       rBody = GetComponent<Rigidbody2D>();
       anim = GetComponent<Animator>();
 
       //movement speed is a float that we multiply by Time.deltaTime;
-      playerSpeed = PlayerManager.defaultMoveSpeed * Time.deltaTime;
+      playerSpeed = PlayerManager.defaultMoveSpeed;
       PlayerManager.currentMoveSpeed = PlayerManager.defaultMoveSpeed;
     }
 
@@ -44,7 +47,9 @@ namespace Platformer {
     void FixedUpdate() {
 
       if (PlayerManager.canMove) {
-        rBody.MovePosition(rBody.position + (movementVector * playerSpeed));
+        
+
+
       }
     }
 
@@ -57,12 +62,15 @@ namespace Platformer {
         movementVector = new Vector2(Input.GetAxisRaw("Horizontal"), 0);
         movementVector.Normalize();
 
-        playerSpeed = PlayerManager.currentMoveSpeed * Time.deltaTime;
+        rBody.velocity = new Vector2(movementVector.x * PlayerManager.currentMoveSpeed, 0f);
+
+        //playerSpeed = PlayerManager.currentMoveSpeed * Time.deltaTime;
       }
     }
 
     private void jump() {
-      rBody.AddForce(Vector2.up * jumpHeight, ForceMode2D.Force);
+      //rBody.AddForce(new Vector2(0f, jumpHeight));
+      rBody.velocity = new Vector2(0f, jumpHeight);
     }
 
     protected void OnCollisionEnter2D(Collision2D collision) {
