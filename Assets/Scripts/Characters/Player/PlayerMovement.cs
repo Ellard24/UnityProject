@@ -9,11 +9,10 @@ namespace Platformer {
     private Animator anim;
     private Player_Manager PlayerManager;
 
-    public float playerSpeed;
+    //tracks the players input
     public Vector2 movementVector;
 
     public float maxSpeed = 2.5f;
-    public float moveForce = 365f;
 
     public float jumpHeight;
     public bool isGrounded = false;
@@ -26,8 +25,6 @@ namespace Platformer {
       rBody = GetComponent<Rigidbody2D>();
       anim = GetComponent<Animator>();
 
-      //movement speed is a float that we multiply by Time.deltaTime;
-      playerSpeed = PlayerManager.defaultMoveSpeed;
       PlayerManager.currentMoveSpeed = PlayerManager.defaultMoveSpeed;
     }
 
@@ -68,6 +65,11 @@ namespace Platformer {
       rBody.velocity = new Vector2(rBody.velocity.x, jumpHeight);
     }
 
+    /*Three different collision events that control whether player
+    *is considered grounded or not. Upon landing on ground first 
+    * event happens, staying on ground -> event two, and third 
+    * event upon leaving the ground(jumping)
+    * **/
     protected void OnCollisionEnter2D(Collision2D collision) {
       isGrounded = true;
     }
