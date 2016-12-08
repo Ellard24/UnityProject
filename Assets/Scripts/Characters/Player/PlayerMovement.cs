@@ -47,9 +47,7 @@ namespace Platformer {
     void FixedUpdate() {
 
       if (PlayerManager.canMove) {
-        
-
-
+        rBody.velocity = new Vector2(movementVector.x * PlayerManager.currentMoveSpeed, rBody.velocity.y);
       }
     }
 
@@ -62,15 +60,12 @@ namespace Platformer {
         movementVector = new Vector2(Input.GetAxisRaw("Horizontal"), 0);
         movementVector.Normalize();
 
-        rBody.velocity = new Vector2(movementVector.x * PlayerManager.currentMoveSpeed, 0f);
-
-        //playerSpeed = PlayerManager.currentMoveSpeed * Time.deltaTime;
+        rBody.velocity = new Vector2(movementVector.x * PlayerManager.currentMoveSpeed, rBody.velocity.y);
       }
     }
 
     private void jump() {
-      //rBody.AddForce(new Vector2(0f, jumpHeight));
-      rBody.velocity = new Vector2(0f, jumpHeight);
+      rBody.velocity = new Vector2(rBody.velocity.x, jumpHeight);
     }
 
     protected void OnCollisionEnter2D(Collision2D collision) {
