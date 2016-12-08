@@ -79,7 +79,17 @@ namespace Platformer {
     protected void OnCollisionExit2D(Collision2D collision) {
       isGrounded = false;
     }
-  }
+        //pick up items
+        void OnTriggerEnter2D(Collider2D other)
+        {
+            
+            if (other.gameObject.CompareTag("PickUp"))
+            {
+                other.gameObject.SetActive(false);
+            }
+        }
+
+    }
 
   
 }
