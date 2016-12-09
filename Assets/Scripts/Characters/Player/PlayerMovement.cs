@@ -53,10 +53,22 @@ namespace Platformer {
             {
                 transform.Translate(new Vector2(0,0.5f) * Time.deltaTime * maxSpeed);
                 isClimbing = true;
-                
+                rBody.gravityScale = 0;
+
             }
-            
-    }
+            if (isOnLadder = true && Input.GetKeyDown(KeyCode.S))
+            {
+                transform.Translate(new Vector2(0, -0.5f) * Time.deltaTime * maxSpeed);
+                isClimbing = true;
+                rBody.gravityScale = 0;
+
+            }
+            if (!isOnLadder)
+            {
+                isClimbing = false;
+            } 
+
+        }
 
     /*
      * Checks user input and calculates appropriate movement vector 
@@ -96,12 +108,12 @@ namespace Platformer {
         
         void OnTriggerEnter2D(Collider2D other)
         {
-             //pick up items
+             //check for item and destroy when player collides
             if (other.gameObject.CompareTag("PickUp")) 
             {
                 other.gameObject.SetActive(false);
             }
-            //enable climbing
+            //Check to see if on ladder
             if (other.gameObject.CompareTag("Ladder"))   
             {
                 isOnLadder = true;
