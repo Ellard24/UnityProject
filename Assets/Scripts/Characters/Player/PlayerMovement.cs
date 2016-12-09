@@ -33,7 +33,7 @@ namespace Platformer {
     // Update is called once per frame
     void Update() {
       checkMovement();
-      
+
       if (Input.GetKeyDown(KeyCode.Space) && isGrounded) {
         jump();
       }
@@ -49,26 +49,24 @@ namespace Platformer {
         rBody.velocity = new Vector2(movementVector.x * PlayerManager.currentMoveSpeed, rBody.velocity.y);
       }
 
-            if (isOnLadder = true && Input.GetKeyDown(KeyCode.W))
-            {
-                transform.Translate(new Vector2(0,0.5f) * Time.deltaTime * maxSpeed);
-                isClimbing = true;
-                rBody.gravityScale = 0;
+      if (isOnLadder == true && Input.GetKey(KeyCode.W)) {
+        transform.Translate(new Vector2(0, 0.5f) * Time.deltaTime * maxSpeed);
+        isClimbing = true;
+        rBody.gravityScale = 0;
 
-            }
-            if (isOnLadder = true && Input.GetKeyDown(KeyCode.S))
-            {
-                transform.Translate(new Vector2(0, -0.5f) * Time.deltaTime * maxSpeed);
-                isClimbing = true;
-                rBody.gravityScale = 0;
+      }
+      if (isOnLadder == true && Input.GetKeyDown(KeyCode.S)) {
+        transform.Translate(new Vector2(0, -0.5f) * Time.deltaTime * maxSpeed);
+        isClimbing = true;
+        rBody.gravityScale = 0;
 
-            }
-            if (!isOnLadder)
-            {
-                isClimbing = false;
-            } 
+      }
+      if (!isOnLadder) {
+        isClimbing = false;
+        rBody.gravityScale = 1;
+      }
 
-        }
+    }
 
     /*
      * Checks user input and calculates appropriate movement vector 
@@ -102,25 +100,24 @@ namespace Platformer {
       isGrounded = false;
     }
 
-       
-        
-
-        
-        void OnTriggerEnter2D(Collider2D other)
-        {
-             //check for item and destroy when player collides
-            if (other.gameObject.CompareTag("PickUp")) 
-            {
-                other.gameObject.SetActive(false);
-            }
-            //Check to see if on ladder
-            if (other.gameObject.CompareTag("Ladder"))   
-            {
-                isOnLadder = true;
-            }
-        }
-
+    void OnTriggerEnter2D(Collider2D other) {
+      //check for item and destroy when player collides
+      if (other.gameObject.CompareTag("PickUp")) {
+        other.gameObject.SetActive(false);
+      }
+      //Check to see if on ladder
+      if (other.gameObject.CompareTag("Ladder")) {
+        isOnLadder = true;
+      }
     }
+
+    void OnTriggerExit2D(Collider2D other) {
+      if (other.gameObject.CompareTag("Ladder")) {
+        isOnLadder = false;
+      }
+    }
+
+  }
 
   
 }
