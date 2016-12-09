@@ -16,6 +16,8 @@ namespace Platformer {
 
     public float jumpHeight;
     public bool isGrounded = false;
+    public bool isOnLadder = false;
+    public bool isClimbing = false;
 
     // Use this for initialization
     void Start() {
@@ -46,6 +48,14 @@ namespace Platformer {
       if (PlayerManager.canMove) {
         rBody.velocity = new Vector2(movementVector.x * PlayerManager.currentMoveSpeed, rBody.velocity.y);
       }
+
+            if (isOnLadder = true && Input.GetKeyDown(KeyCode.W))
+            {
+                transform.Translate(new Vector2(0,0.5f) * Time.deltaTime * maxSpeed);
+                isClimbing = true;
+                
+            }
+            
     }
 
     /*
@@ -79,13 +89,22 @@ namespace Platformer {
     protected void OnCollisionExit2D(Collision2D collision) {
       isGrounded = false;
     }
-        //pick up items
+
+       
+        
+
+        
         void OnTriggerEnter2D(Collider2D other)
         {
-            
-            if (other.gameObject.CompareTag("PickUp"))
+             //pick up items
+            if (other.gameObject.CompareTag("PickUp")) 
             {
                 other.gameObject.SetActive(false);
+            }
+            //enable climbing
+            if (other.gameObject.CompareTag("Ladder"))   
+            {
+                isOnLadder = true;
             }
         }
 
