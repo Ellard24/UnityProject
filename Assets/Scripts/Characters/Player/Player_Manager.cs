@@ -10,8 +10,9 @@ namespace Platformer {
 
     }
 
-    // Update is called once per frame
-    void Update() {
+      
+            // Update is called once per frame
+            void Update() {
 
     }
   }
