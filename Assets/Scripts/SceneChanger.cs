@@ -55,8 +55,15 @@ namespace Platformer {
       //we will use a specific naming convention to streamline scene changes. 
       //This way we can keep each set of scenes per level compartmentalized 
       sceneNameChanger();
+      //fadeEffect();
       SceneManager.LoadScene(nextScene);
       spawnPlayerInNewScene();
+    }
+
+    IEnumerator fadeEffect() {
+      ScreenFader sf = GameObject.Find("ScreenFader").GetComponent<ScreenFader>();
+      yield return StartCoroutine(sf.FadeToBlack());
+      yield return StartCoroutine(sf.FadeToClear());
     }
 
     private void spawnPlayerInNewScene() {
