@@ -85,5 +85,15 @@ namespace Platformer {
         nextScene = string.Format("{0}SeasonSpring", strArr[0]);
       }
     }
+
+    public void levelChange() {
+
+
+
+
+
+    }
+
+
   }
 }

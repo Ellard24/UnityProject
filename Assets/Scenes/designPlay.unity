@@ -401,7 +401,7 @@ GameObject:
   - 61: {fileID: 1657988302}
   - 212: {fileID: 1657988301}
   m_Layer: 0
-  m_Name: GameObject (2)
+  m_Name: SlopePractice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -448,7 +448,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1657988300}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 7c77691e21e99e744825c33e2cf01480, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: -0.0035072537}
@@ -460,10 +460,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1657988300}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.13, y: -1.68, z: 0}
-  m_LocalScale: {x: 3.56, y: 1.0000008, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0.23102613, w: 0.9729476}
+  m_LocalPosition: {x: -1.011, y: -1.438, z: 0}
+  m_LocalScale: {x: 12.866671, y: 0.5348825, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -26.603}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -687,7 +687,7 @@ GameObject:
   - 61: {fileID: 2101110888}
   - 212: {fileID: 2101110887}
   m_Layer: 0
-  m_Name: GameObject (1)
+  m_Name: Bouncy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -734,7 +734,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 2101110886}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 5fd2cbcb46b97244c97dfc5abf8db1e6, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: -0.0035072537}
@@ -747,7 +747,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2101110886}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.72, y: -1.28, z: 0}
+  m_LocalPosition: {x: 1.691, y: -1.852, z: 0}
   m_LocalScale: {x: 16.024769, y: 1.0000008, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
