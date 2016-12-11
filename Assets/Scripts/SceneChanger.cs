@@ -14,7 +14,7 @@ namespace Platformer {
     public string nextScene;
     private Vector2 playerCoords;
 
-    public KeyCode seasonChange = KeyCode.E;
+    public KeyCode seasonChange = KeyCode.LeftShift;
 
 
     //This will make sure we dont ever have more than one scene changer object

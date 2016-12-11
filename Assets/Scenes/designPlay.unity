@@ -378,6 +378,15 @@ Prefab:
       propertyPath: m_SortingLayerID
       value: -1388761595
       objectReference: {fileID: 0}
+    - target: {fileID: 4000013302870146, guid: d68b522e5611f1f4aac73e81cc6f4809, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 50000012926932484, guid: d68b522e5611f1f4aac73e81cc6f4809,
+        type: 2}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d68b522e5611f1f4aac73e81cc6f4809, type: 2}
   m_IsPrefabParent: 0
@@ -667,11 +676,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
---- !u!4 &2076637388 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4000011296772872, guid: d68b522e5611f1f4aac73e81cc6f4809,
-    type: 2}
-  m_PrefabInternal: {fileID: 1498744534}
 --- !u!1 &2101110886
 GameObject:
   m_ObjectHideFlags: 0
@@ -848,5 +852,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d88173e11dfa994bbc2e7acc18ed81c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 2076637388}
+  target: {fileID: 0}
   camSpeed: 0.1
