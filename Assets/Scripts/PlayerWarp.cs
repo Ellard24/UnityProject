@@ -2,17 +2,22 @@
 using System.Collections;
 namespace Platformer
 {
+    
     public class PlayerWarp : MonoBehaviour
     {
+        private static bool playerHasKey;
+        public GameObject Player;
         void Start()
         {
-
+            Player = GameObject.Find("Player");
         }
+      
 
-        //Warp player to coordinates 
+        //Warp player to coordinates if Player has picked up key
         void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.gameObject.CompareTag ("Player"))
+           
+            if (playerHasKey = true && other.gameObject.CompareTag ("Player"))
             {
                 other.transform.position = new Vector3(7, 2, 0);
 
@@ -22,6 +27,7 @@ namespace Platformer
         // Update is called once per frame
         void Update()
         {
+            playerHasKey = Player.GetComponent<Player_Manager>().hasKey;
 
         }
     }
