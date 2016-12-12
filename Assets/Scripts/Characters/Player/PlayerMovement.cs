@@ -18,6 +18,7 @@ namespace Platformer {
     public bool isGrounded = false;
     public bool isOnLadder = false;
     public bool isClimbing = false;
+    public bool isSwimming = false;
 
     // Use this for initialization
     void Start() {
@@ -34,7 +35,7 @@ namespace Platformer {
     void Update() {
       checkMovement();
 
-      if (Input.GetKeyDown(KeyCode.Space) && isGrounded) {
+      if (Input.GetKeyDown(KeyCode.Space) && isGrounded && !isSwimming) {
         jump();
       }
     }
@@ -46,22 +47,37 @@ namespace Platformer {
     void FixedUpdate() {
 
       if (PlayerManager.canMove) {
-        rBody.velocity = new Vector2(movementVector.x * PlayerManager.currentMoveSpeed, rBody.velocity.y);
-      }
+        if (!isSwimming) {
+          rBody.velocity = new Vector2(movementVector.x * PlayerManager.currentMoveSpeed, rBody.velocity.y);
 
-      if (isOnLadder == true && Input.GetKey(KeyCode.W)) {
-        transform.Translate(new Vector2(0, 0.5f) * Time.deltaTime * maxSpeed);
-        isClimbing = true;
-        rBody.gravityScale = 0;
 
-      }
-      if (isOnLadder == true && Input.GetKeyDown(KeyCode.S)) {
-        transform.Translate(new Vector2(0, -0.5f) * Time.deltaTime * maxSpeed);
-        isClimbing = true;
-        rBody.gravityScale = 0;
+          if (isOnLadder == true && Input.GetKey(KeyCode.W)) {
+            transform.Translate(new Vector2(0, 0.5f) * Time.deltaTime * maxSpeed);
+            isClimbing = true;
+            rBody.gravityScale = 0;
 
+          }
+          if (isOnLadder == true && Input.GetKeyDown(KeyCode.S)) {
+            transform.Translate(new Vector2(0, -0.5f) * Time.deltaTime * maxSpeed);
+            isClimbing = true;
+            rBody.gravityScale = 0;
+
+          }
+        } else {
+          rBody.gravityScale = 0.1f;
+          if (Input.GetKeyDown(KeyCode.Space)) {
+            rBody.velocity = new Vector2(rBody.velocity.x, 1f);
+          }
+          rBody.velocity = new Vector2(movementVector.x * PlayerManager.currentMoveSpeed, rBody.velocity.y);
+        }
       }
+      /**
       if (!isOnLadder) {
+        isClimbing = false;
+        rBody.gravityScale = 1;
+      }
+      **/
+      if (!isSwimming && !isOnLadder) {
         isClimbing = false;
         rBody.gravityScale = 1;
       }
@@ -77,7 +93,7 @@ namespace Platformer {
         movementVector = new Vector2(Input.GetAxisRaw("Horizontal"), 0);
         movementVector.Normalize();
 
-        rBody.velocity = new Vector2(movementVector.x * PlayerManager.currentMoveSpeed, rBody.velocity.y);
+        //rBody.velocity = new Vector2(movementVector.x * PlayerManager.currentMoveSpeed, rBody.velocity.y);
       }
     }
 

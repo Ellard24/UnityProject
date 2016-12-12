@@ -171,6 +171,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 114000010461118606, guid: 99a5eda569b893c4c9fdaec4b2d39ba8,
+        type: 2}
+      propertyPath: seasonChange
+      value: 304
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 99a5eda569b893c4c9fdaec4b2d39ba8, type: 2}
   m_IsPrefabParent: 0
@@ -715,6 +720,16 @@ Prefab:
         type: 2}
       propertyPath: m_SortingLayerID
       value: -1388761595
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000014041539258, guid: d68b522e5611f1f4aac73e81cc6f4809,
+        type: 2}
+      propertyPath: maxSpeed
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000014041539258, guid: d68b522e5611f1f4aac73e81cc6f4809,
+        type: 2}
+      propertyPath: jumpHeight
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d68b522e5611f1f4aac73e81cc6f4809, type: 2}

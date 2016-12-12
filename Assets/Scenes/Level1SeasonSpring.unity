@@ -178,6 +178,7 @@ GameObject:
   - 61: {fileID: 303481907}
   - 212: {fileID: 303481906}
   - 114: {fileID: 303481909}
+  - 253: {fileID: 303481910}
   m_Layer: 0
   m_Name: GameObject (6)
   m_TagString: Untagged
@@ -228,7 +229,7 @@ BoxCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_Offset: {x: 0, y: -0.0035072537}
   serializedVersion: 2
   m_Size: {x: 0.125, y: 0.1179854}
@@ -257,6 +258,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SC: {fileID: 0}
+  Player: {fileID: 0}
+--- !u!253 &303481910
+BuoyancyEffector2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 303481905}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_SurfaceLevel: 0
+  m_Density: 2
+  m_LinearDrag: 5
+  m_AngularDrag: 5
+  m_FlowAngle: 0
+  m_FlowMagnitude: 0
+  m_FlowVariation: 0
 --- !u!1 &473751202
 GameObject:
   m_ObjectHideFlags: 0
@@ -452,6 +472,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
+  SC: {fileID: 0}
 --- !u!1001 &1341506181
 Prefab:
   m_ObjectHideFlags: 0
