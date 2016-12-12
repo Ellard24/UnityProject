@@ -102,7 +102,7 @@ namespace Platformer {
 
     void OnTriggerEnter2D(Collider2D other) {
       //check for item and destroy when player collides
-      if (other.gameObject.CompareTag("PickUp")) {
+      if (other.gameObject.CompareTag("Key")) {
         other.gameObject.SetActive(false);
       }
       //Check to see if on ladder
