@@ -17,7 +17,7 @@ namespace Platformer
         void OnTriggerEnter2D(Collider2D other)
         {
            
-            if (playerHasKey = true && other.gameObject.CompareTag ("Player"))
+            if (playerHasKey == true && other.gameObject.CompareTag ("Player"))
             {
                 other.transform.position = new Vector3(7, 2, 0);
 

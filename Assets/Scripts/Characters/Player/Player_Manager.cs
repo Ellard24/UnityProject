@@ -6,7 +6,7 @@ namespace Platformer {
   public class Player_Manager : Character {
 
     private static bool created = false;
-    public static bool hasKey = false;
+    public bool hasKey = false;
 
     void Awake() {
       if (!created) {
