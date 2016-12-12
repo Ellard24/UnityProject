@@ -246,7 +246,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 732733695}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.014, y: -0.304, z: 0}
+  m_LocalPosition: {x: -2.014, y: -0.428, z: 0}
   m_LocalScale: {x: 5.7981596, y: 6.9078207, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -428,6 +428,7 @@ GameObject:
   - 4: {fileID: 1052013156}
   - 61: {fileID: 1052013155}
   - 212: {fileID: 1052013154}
+  - 251: {fileID: 1052013157}
   m_Layer: 0
   m_Name: GameObject (3)
   m_TagString: Untagged
@@ -478,7 +479,7 @@ BoxCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_Offset: {x: 0, y: -0.0035072537}
   serializedVersion: 2
   m_Size: {x: 0.125, y: 0.1179854}
@@ -489,12 +490,29 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1052013153}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.845, y: -0.874, z: 0}
+  m_LocalPosition: {x: -1.845, y: -0.972, z: 0}
   m_LocalScale: {x: 17.997547, y: 1.4801962, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
+--- !u!251 &1052013157
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1052013153}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
 --- !u!1 &1176001969
 GameObject:
   m_ObjectHideFlags: 0
@@ -687,6 +705,16 @@ Prefab:
     - target: {fileID: 4000013302870146, guid: d68b522e5611f1f4aac73e81cc6f4809, type: 2}
       propertyPath: m_RootOrder
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 50000012926932484, guid: d68b522e5611f1f4aac73e81cc6f4809,
+        type: 2}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212000010515297808, guid: d68b522e5611f1f4aac73e81cc6f4809,
+        type: 2}
+      propertyPath: m_SortingLayerID
+      value: -1388761595
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d68b522e5611f1f4aac73e81cc6f4809, type: 2}

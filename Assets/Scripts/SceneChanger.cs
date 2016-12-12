@@ -14,6 +14,9 @@ namespace Platformer {
     public string nextScene;
     private Vector2 playerCoords;
 
+    public string currentSeason;
+    public bool justChanged;
+
     public KeyCode seasonChange = KeyCode.LeftShift;
 
 
@@ -29,6 +32,7 @@ namespace Platformer {
     // Use this for initialization
     void Start() {
       Player = GameObject.Find("Player");
+      currentSeason = null;
       currentScene = SceneManager.GetActiveScene().name;
     }
 
@@ -55,6 +59,7 @@ namespace Platformer {
       //we will use a specific naming convention to streamline scene changes. 
       //This way we can keep each set of scenes per level compartmentalized 
       sceneNameChanger();
+      justChanged = true;
       //fadeEffect();
       SceneManager.LoadScene(nextScene);
       spawnPlayerInNewScene();
@@ -72,6 +77,11 @@ namespace Platformer {
       Player.transform.position = playerCoords;
     }
 
+    private void setCurrentSeason(string seasonName) {
+      currentSeason = seasonName;
+    }
+
+
     /*
      * Takes the current scene name and creates the appropriate name for nextScene so 
      * that the scene manager can appropriately change scenes
@@ -80,9 +90,11 @@ namespace Platformer {
       if (currentScene.Contains("Spring")) {
         string[] strArr = currentScene.Split(new string[] {"Season"}, System.StringSplitOptions.None);
         nextScene = string.Format("{0}SeasonWinter", strArr[0]);
+        setCurrentSeason("Winter");
       }else if (currentScene.Contains("Winter")) {
         string[] strArr = currentScene.Split(new string[] { "Season" }, System.StringSplitOptions.None);
         nextScene = string.Format("{0}SeasonSpring", strArr[0]);
+        setCurrentSeason("Spring");
       }
     }
 
