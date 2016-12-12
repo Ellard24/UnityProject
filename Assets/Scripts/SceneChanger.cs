@@ -86,14 +86,5 @@ namespace Platformer {
       }
     }
 
-    public void levelChange() {
-
-
-
-
-
-    }
-
-
   }
 }
