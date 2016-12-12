@@ -6,6 +6,7 @@ namespace Platformer {
   public class Player_Manager : Character {
 
     private static bool created = false;
+    public bool hasKey = false;
 
     void Awake() {
       if (!created) {
@@ -14,7 +15,13 @@ namespace Platformer {
       } else
         Destroy(this.gameObject);
     }
-
+        void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.gameObject.CompareTag("Key"))
+            {
+                hasKey = true;
+            }
+        }
     // Use this for initialization
     void Start() {
 
@@ -22,7 +29,9 @@ namespace Platformer {
 
       
             // Update is called once per frame
-    void Update() {
+    void Update()
+        {
+           
 
     }
   }
