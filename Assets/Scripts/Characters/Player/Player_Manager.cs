@@ -15,13 +15,14 @@ namespace Platformer {
       } else
         Destroy(this.gameObject);
     }
-        void OnTriggerEnter2D(Collider2D other)
-        {
-            if (other.gameObject.CompareTag("Key"))
-            {
-                hasKey = true;
-            }
-        }
+
+    /*
+    void OnTriggerEnter2D(Collider2D other) {
+      if (other.gameObject.CompareTag("Key")) {
+        hasKey = true;
+      }
+    }
+    */
     // Use this for initialization
     void Start() {
 
