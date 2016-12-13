@@ -11,6 +11,7 @@ namespace Platformer {
 
     //tracks the players input
     public Vector2 movementVector;
+    public float last_x;
 
     public float maxSpeed = 2.5f;
 
@@ -92,6 +93,11 @@ namespace Platformer {
       if (PlayerManager.canMove) {
         movementVector = new Vector2(Input.GetAxisRaw("Horizontal"), 0);
         movementVector.Normalize();
+
+        //used for Player_manager interact system later on
+        if (movementVector.x != 0) {
+          last_x = movementVector.x;
+        }
 
         //rBody.velocity = new Vector2(movementVector.x * PlayerManager.currentMoveSpeed, rBody.velocity.y);
       }

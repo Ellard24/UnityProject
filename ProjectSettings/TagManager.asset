@@ -9,6 +9,7 @@ TagManager:
   - Ladder
   - Key
   - Fader
+  - Interactable
   layers:
   - Default
   - TransparentFX
