@@ -11,6 +11,8 @@ namespace Platformer {
     public KeyCode interactButton = KeyCode.E;
     public RaycastHit2D direction;
     public bool currentlyInteracting = false;
+    public GameObject interactionTarget;
+    public string interactionTargetTag;
 
     void Awake() {
       if (!created) {
@@ -41,8 +43,10 @@ namespace Platformer {
       direction = Physics2D.Raycast(transform.position, new Vector2(GetComponent<PlayerMovement>().last_x, 0), 1f);
 
       //actually perform the interaction is target is acceptable
-      if (direction.collider != null && direction.collider.tag == "Interactable") {
+      if (direction.collider != null && (direction.collider.tag == "Interactable" || direction.collider.tag == "InteractableSeasonal")) {
         currentlyInteracting = true;
+        interactionTarget = direction.collider.gameObject;
+        interactionTargetTag = direction.collider.tag;
         Debug.Log("it worked");
         direction.collider.gameObject.SendMessage("playerInteraction", GetComponent<PlayerMovement>().last_x, SendMessageOptions.DontRequireReceiver);
       }

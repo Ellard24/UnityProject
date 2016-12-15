@@ -7,12 +7,14 @@ namespace Platformer {
   public class SceneChanger : MonoBehaviour {
 
     public GameObject Player;
+    public Player_Manager PM;
 
     private static bool created = false;
       
     public string currentScene;
     public string nextScene;
     private Vector2 playerCoords;
+    public Vector2 objectCoords;
 
     public string currentSeason;
     public bool justChanged;
@@ -32,6 +34,7 @@ namespace Platformer {
     // Use this for initialization
     void Start() {
       Player = GameObject.Find("Player");
+      PM = GameObject.Find("Player").GetComponent<Player_Manager>();
       currentSeason = null;
       currentScene = SceneManager.GetActiveScene().name;
     }
@@ -56,12 +59,17 @@ namespace Platformer {
     private void changeScene() {
       playerCoords = Player.transform.position;
 
+
       //we will use a specific naming convention to streamline scene changes. 
       //This way we can keep each set of scenes per level compartmentalized 
       sceneNameChanger();
       justChanged = true;
       //fadeEffect();
+      if (PM.interactionTarget != null && PM.interactionTarget.tag == "InteractableSeasonal") {
+        objectCoords = PM.interactionTarget.transform.position;
+      }
       SceneManager.LoadScene(nextScene);
+
       spawnPlayerInNewScene();
     }
 

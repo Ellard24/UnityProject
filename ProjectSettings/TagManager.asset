@@ -10,6 +10,7 @@ TagManager:
   - Key
   - Fader
   - Interactable
+  - InteractableSeasonal
   layers:
   - Default
   - TransparentFX
