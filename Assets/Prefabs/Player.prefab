@@ -25,9 +25,9 @@ GameObject:
   - 114: {fileID: 114000012141480334}
   - 114: {fileID: 114000014041539258}
   - 95: {fileID: 95000013370705530}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -114,6 +114,7 @@ MonoBehaviour:
   currentDamage: 0
   defaultMoveSpeed: 3
   currentMoveSpeed: 0
+  hasKey: 0
 --- !u!114 &114000014041539258
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -4,9 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - PickUp
-  - Player
+  - Key
   - Ladder
+  - Key
   layers:
   - Default
   - TransparentFX
