@@ -6,7 +6,7 @@ namespace Platformer {
 
     //Variables that correspond to certain components attached to object
     private Rigidbody2D rBody;
-    private Animator anim;
+    private Animator Anim;
     private Player_Manager PlayerManager;
 
     //tracks the players input
@@ -28,7 +28,7 @@ namespace Platformer {
       //jumpHeight;
       PlayerManager = GetComponent<Player_Manager>();
       rBody = GetComponent<Rigidbody2D>();
-      anim = GetComponent<Animator>();
+      Anim = GetComponent<Animator>();
 
       PlayerManager.currentMoveSpeed = PlayerManager.defaultMoveSpeed;
     }
@@ -102,6 +102,27 @@ namespace Platformer {
 
         //rBody.velocity = new Vector2(movementVector.x * PlayerManager.currentMoveSpeed, rBody.velocity.y);
       }
+            if (Anim)
+            {
+
+                //Checks to see if movement vector is equal to zero. If not zero, means we set the animator to walking else dont set to walking
+                if (movementVector != Vector2.zero)
+                {
+                    Anim.SetBool("isWalking", true);
+
+                    //Updates the direction so that we don't snap back to original position 
+                    Anim.SetFloat("input_x", movementVector.x);
+                    Anim.SetFloat("input_y", movementVector.y);
+                    Anim.SetFloat("lastMove_x", movementVector.x);
+                    Anim.SetFloat("lastMove_y", movementVector.y);
+                }
+                else
+                {
+                    Anim.SetBool("isWalking", false);
+                }
+
+            }
+        
     }
 
     private void jump() {
