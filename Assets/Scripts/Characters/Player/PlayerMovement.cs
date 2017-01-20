@@ -20,9 +20,10 @@ namespace Platformer {
     public bool isOnLadder = false;
     public bool isClimbing = false;
     public bool isSwimming = false;
+    public bool hasKey = false;
 
-    // Use this for initialization
-    void Start() {
+        // Use this for initialization
+        void Start() {
 
       //jumpHeight;
       PlayerManager = GetComponent<Player_Manager>();
@@ -125,7 +126,8 @@ namespace Platformer {
     void OnTriggerEnter2D(Collider2D other) {
       //check for item and destroy when player collides
       if (other.gameObject.CompareTag("Key")) {
-        other.gameObject.SetActive(false);
+                other.gameObject.SetActive(false);
+                hasKey = true;
       }
       //Check to see if on ladder
       if (other.gameObject.CompareTag("Ladder")) {

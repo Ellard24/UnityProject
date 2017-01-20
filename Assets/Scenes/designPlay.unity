@@ -482,7 +482,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1373437595}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7, y: 1, z: 0}
+  m_LocalPosition: {x: 6.943, y: 1.639, z: 0}
   m_LocalScale: {x: 16.024769, y: 1.0000008, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -557,16 +557,37 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000013302870146, guid: d68b522e5611f1f4aac73e81cc6f4809, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1.28
+      value: -1.335
       objectReference: {fileID: 0}
     - target: {fileID: 4000013302870146, guid: d68b522e5611f1f4aac73e81cc6f4809, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0.09
+      value: 0.112
       objectReference: {fileID: 0}
     - target: {fileID: 212000010515297808, guid: d68b522e5611f1f4aac73e81cc6f4809,
         type: 2}
       propertyPath: m_SortingLayerID
       value: -1388761595
+      objectReference: {fileID: 0}
+    - target: {fileID: 212000010515297808, guid: d68b522e5611f1f4aac73e81cc6f4809,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: cb2c7efa591f5534394c05761088d6c1,
+        type: 3}
+    - target: {fileID: 61000011214728074, guid: d68b522e5611f1f4aac73e81cc6f4809,
+        type: 2}
+      propertyPath: m_Offset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 61000011214728074, guid: d68b522e5611f1f4aac73e81cc6f4809,
+        type: 2}
+      propertyPath: m_Offset.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 61000011214728074, guid: d68b522e5611f1f4aac73e81cc6f4809,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 1.15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d68b522e5611f1f4aac73e81cc6f4809, type: 2}
@@ -999,7 +1020,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 2.6579688
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
