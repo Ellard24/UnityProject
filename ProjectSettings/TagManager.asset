@@ -4,13 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - PickUp
-  - Player
+  - Key
   - Ladder
   - Key
-  - Fader
-  - Interactable
-  - InteractableSeasonal
   layers:
   - Default
   - TransparentFX

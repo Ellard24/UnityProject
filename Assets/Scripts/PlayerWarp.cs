@@ -19,7 +19,7 @@ namespace Platformer
            
             if (playerHasKey == true && other.gameObject.CompareTag ("Player"))
             {
-                other.transform.position = new Vector3(7, 2, 0);
+                other.transform.position = new Vector3(6, 2, 0);
 
             }
         }
@@ -27,7 +27,7 @@ namespace Platformer
         // Update is called once per frame
         void Update()
         {
-            playerHasKey = Player.GetComponent<Player_Manager>().hasKey;
+            playerHasKey = Player.GetComponent<PlayerMovement>().hasKey;
 
         }
     }

@@ -6,7 +6,7 @@ namespace Platformer {
   public class Player_Manager : Character {
 
     private static bool created = false;
-    public bool hasKey = false;
+    
 
     public KeyCode interactButton = KeyCode.E;
     public RaycastHit2D direction;

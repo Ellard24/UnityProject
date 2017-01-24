@@ -6,7 +6,7 @@ namespace Platformer {
 
     //Variables that correspond to certain components attached to object
     private Rigidbody2D rBody;
-    private Animator anim;
+    private Animator Anim;
     private Player_Manager PlayerManager;
 
     //tracks the players input
@@ -20,14 +20,15 @@ namespace Platformer {
     public bool isOnLadder = false;
     public bool isClimbing = false;
     public bool isSwimming = false;
+    public bool hasKey = false;
 
-    // Use this for initialization
-    void Start() {
+        // Use this for initialization
+        void Start() {
 
       //jumpHeight;
       PlayerManager = GetComponent<Player_Manager>();
       rBody = GetComponent<Rigidbody2D>();
-      anim = GetComponent<Animator>();
+      Anim = GetComponent<Animator>();
 
       PlayerManager.currentMoveSpeed = PlayerManager.defaultMoveSpeed;
     }
@@ -101,6 +102,46 @@ namespace Platformer {
 
         //rBody.velocity = new Vector2(movementVector.x * PlayerManager.currentMoveSpeed, rBody.velocity.y);
       }
+            if (Anim)
+            {
+
+                //Checks to see if movement vector is equal to zero. If not zero, means we set the animator to walking else dont set to walking
+                if (movementVector != Vector2.zero)
+                {
+                    Anim.SetBool("isWalking", true);
+
+                    //Updates the direction so that we don't snap back to original position 
+                    Anim.SetFloat("input_x", movementVector.x);
+                    Anim.SetFloat("input_y", movementVector.y);
+                    Anim.SetFloat("lastMove_x", movementVector.x);
+                    Anim.SetFloat("lastMove_y", movementVector.y);
+                }
+                else
+                {
+                    Anim.SetBool("isWalking", false);
+                }
+            
+            
+
+                //Animation changes based on Direction Player is walking
+                var vertical = Input.GetAxis("Vertical");
+                var horizontal = Input.GetAxis("Horizontal");
+
+                if (horizontal == 0)
+                {
+                    Anim.SetInteger("Direction", 0);
+                }
+               else if (horizontal > 0)
+                {
+                    Anim.SetInteger("Direction", 2);
+                }
+               else if (horizontal < 0)
+                {
+                    Anim.SetInteger("Direction", 1);
+                }
+
+            }
+        
     }
 
     private void jump() {
@@ -125,7 +166,8 @@ namespace Platformer {
     void OnTriggerEnter2D(Collider2D other) {
       //check for item and destroy when player collides
       if (other.gameObject.CompareTag("Key")) {
-        other.gameObject.SetActive(false);
+                other.gameObject.SetActive(false);
+                hasKey = true;
       }
       //Check to see if on ladder
       if (other.gameObject.CompareTag("Ladder")) {
