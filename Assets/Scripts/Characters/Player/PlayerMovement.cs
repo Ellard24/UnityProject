@@ -86,22 +86,25 @@ namespace Platformer {
 
     }
 
-    /*
-     * Checks user input and calculates appropriate movement vector 
-     * normalizing it between 0 and 1
-     * */
-    private void checkMovement() {
-      if (PlayerManager.canMove) {
-        movementVector = new Vector2(Input.GetAxisRaw("Horizontal"), 0);
-        movementVector.Normalize();
+        /*
+         * Checks user input and calculates appropriate movement vector 
+         * normalizing it between 0 and 1
+         * */
+        private void checkMovement()
+        {
+            if (PlayerManager.canMove)
+            {
+                movementVector = new Vector2(Input.GetAxisRaw("Horizontal"), 0);
+                movementVector.Normalize();
 
-        //used for Player_manager interact system later on
-        if (movementVector.x != 0) {
-          last_x = movementVector.x;
-        }
+                //used for Player_manager interact system later on
+                if (movementVector.x != 0)
+                {
+                    last_x = movementVector.x;
+                }
 
-        //rBody.velocity = new Vector2(movementVector.x * PlayerManager.currentMoveSpeed, rBody.velocity.y);
-      }
+                //rBody.velocity = new Vector2(movementVector.x * PlayerManager.currentMoveSpeed, rBody.velocity.y);
+            }
             if (Anim)
             {
 
@@ -127,8 +130,9 @@ namespace Platformer {
 
 
             }
-        
-    }
+
+
+        }
 
     private void jump() {
       rBody.velocity = new Vector2(rBody.velocity.x, jumpHeight);
