@@ -119,26 +119,12 @@ namespace Platformer {
                 else
                 {
                     Anim.SetBool("isWalking", false);
+                    Anim.SetFloat("input_x", movementVector.x);
+                    Anim.SetFloat("input_y", movementVector.y);
                 }
-            
-            
 
-                //Animation changes based on Direction Player is walking
-                var vertical = Input.GetAxis("Vertical");
-                var horizontal = Input.GetAxis("Horizontal");
 
-                if (horizontal == 0)
-                {
-                    Anim.SetInteger("Direction", 0);
-                }
-               else if (horizontal > 0)
-                {
-                    Anim.SetInteger("Direction", 2);
-                }
-               else if (horizontal < 0)
-                {
-                    Anim.SetInteger("Direction", 1);
-                }
+
 
             }
         
